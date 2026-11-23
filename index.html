@@ -1,0 +1,2613 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fajar Tri H (@fajarth) — Educator &amp; Technology Enthusiast</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            surface: '#F8FAFC',
+            card: '#FFFFFF',
+            tosca: {
+              50: '#F0FDFA',
+              100: '#CCFBF1',
+              600: '#0D9488',
+              700: '#0F766E',
+            },
+            skyaccent: {
+              50: '#F0F9FF',
+              100: '#E0F2FE',
+              600: '#0284C7',
+              700: '#0369A1',
+            },
+          },
+          boxShadow: {
+            bento: '0 4px 20px -2px rgba(15, 23, 42, 0.04), 0 1px 3px 0 rgba(15, 23, 42, 0.03)',
+            'bento-hover': '0 14px 28px -6px rgba(13, 148, 136, 0.12), 0 4px 10px -2px rgba(2, 132, 199, 0.06)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* Clean bright surface & card transitions */
+    body {
+      background-color: #F8FAFC;
+      color: #0F172A;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    .bento-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04), 0 1px 3px 0 rgba(15, 23, 42, 0.03);
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+                  border-color 0.25s ease;
+    }
+
+    .bento-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px -6px rgba(13, 148, 136, 0.12), 0 4px 10px -2px rgba(2, 132, 199, 0.06);
+      border-color: #99F6E4;
+    }
+
+    .soft-grid-bg {
+      background-image:
+        radial-gradient(circle at 12% 15%, rgba(13, 148, 136, 0.07) 0%, transparent 42%),
+        radial-gradient(circle at 88% 12%, rgba(2, 132, 199, 0.07) 0%, transparent 40%),
+        radial-gradient(circle at 50% 85%, rgba(13, 148, 136, 0.04) 0%, transparent 45%);
+    }
+
+    .fade-in {
+      animation: fadeIn 0.18s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Custom subtle scrollbar */
+    .admin-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .admin-scroll::-webkit-scrollbar-track {
+      background: #F1F5F9;
+    }
+    .admin-scroll::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 9999px;
+    }
+    .admin-scroll::-webkit-scrollbar-thumb:hover {
+      background: #94A3B8;
+    }
+  </style>
+</head>
+<body class="soft-grid-bg antialiased selection:bg-teal-100 selection:text-teal-900">
+
+  <!-- Toast Notification Container (No alert/confirm used anywhere) -->
+  <div
+    id="toast-container"
+    aria-live="polite"
+    class="fixed bottom-5 right-5 z-[80] flex flex-col gap-2 max-w-sm w-full pointer-events-none px-4 sm:px-0"
+  ></div>
+
+  <!-- ===================================================================== -->
+  <!-- PUBLIC VIEW WRAPPER (Hidden when #admin is active)                    -->
+  <!-- ===================================================================== -->
+  <div id="public-view">
+    <!-- 1. TOP HEADER & NAVIGATION -->
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-white/85 border-b border-slate-200/70">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
+        <!-- Brand Identity -->
+        <a href="#" class="flex items-center gap-2.5 group focus:outline-none min-w-0">
+          <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-teal-600 to-sky-600 text-white font-display font-bold text-sm flex items-center justify-center shadow-sm shrink-0 group-hover:scale-105 transition-transform">
+            F
+          </span>
+          <div class="leading-tight truncate">
+            <span class="font-display font-bold text-slate-900 text-sm sm:text-base block truncate" id="nav-name">Fajar Tri H</span>
+            <span class="text-xs font-medium text-teal-700 block truncate" id="nav-handle">@fajarth</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav aria-label="Navigasi Utama" class="hidden md:flex items-center gap-5 lg:gap-6 text-sm font-medium text-slate-600">
+          <a href="#tentang" class="hover:text-teal-700 transition-colors">Tentang</a>
+          <a href="#karya" class="hover:text-teal-700 transition-colors">Karya</a>
+          <a href="#perangkat-adm" class="hover:text-teal-700 transition-colors">Perangkat &amp; Adm</a>
+          <a href="#filosofi" class="hover:text-teal-700 transition-colors">Filosofi</a>
+          <a href="#kontak" class="hover:text-teal-700 transition-colors">Kontak</a>
+        </nav>
+
+        <!-- Header Action (Public CTA only — zero admin hints) -->
+        <div class="flex items-center gap-2 shrink-0">
+          <a
+            href="#kontak"
+            class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-teal-600 hover:bg-teal-700 text-white shadow-sm transition-colors"
+          >
+            <i data-lucide="send" class="w-3.5 h-3.5"></i>
+            <span>Sapa</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Compact Mobile Anchor Bar -->
+      <div class="flex md:hidden items-center justify-around border-t border-slate-100 bg-white/95 text-xs font-medium text-slate-600 py-2 px-1 overflow-x-auto">
+        <a href="#tentang" class="px-2 py-1 rounded-lg hover:bg-teal-50 hover:text-teal-700 whitespace-nowrap">Tentang</a>
+        <a href="#karya" class="px-2 py-1 rounded-lg hover:bg-teal-50 hover:text-teal-700 whitespace-nowrap">Karya</a>
+        <a href="#perangkat-adm" class="px-2 py-1 rounded-lg hover:bg-teal-50 hover:text-teal-700 whitespace-nowrap">Perangkat</a>
+        <a href="#filosofi" class="px-2 py-1 rounded-lg hover:bg-teal-50 hover:text-teal-700 whitespace-nowrap">Filosofi</a>
+        <a href="#kontak" class="px-2 py-1 rounded-lg hover:bg-teal-50 hover:text-teal-700 whitespace-nowrap">Kontak</a>
+      </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-16 space-y-14 sm:space-y-20">
+
+      <!-- 2. HERO SECTION -->
+      <section aria-labelledby="hero-heading" class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        <!-- Main Hero Card (7 cols) -->
+        <div class="lg:col-span-7 bento-card p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
+          <div>
+            <!-- Role Badge -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-200/80 text-teal-800 text-xs sm:text-[13px] font-medium mb-5">
+              <span class="w-2 h-2 rounded-full bg-teal-600 animate-pulse"></span>
+              <span id="hero-role-badge">Educator · Technology Enthusiast · Digital Learning Explorer</span>
+            </div>
+
+            <!-- Name & Handle -->
+            <div class="flex flex-wrap items-baseline gap-3 mb-2.5">
+              <h1 id="hero-heading" class="font-display font-extrabold text-3xl sm:text-4xl lg:text-[2.65rem] tracking-tight text-slate-900">
+                Fajar Tri H
+              </h1>
+              <span id="hero-handle" class="font-display font-semibold text-base sm:text-lg text-sky-600 select-none">
+                @fajarth
+              </span>
+            </div>
+
+            <!-- Headline -->
+            <p id="hero-headline" class="font-display font-bold text-lg sm:text-xl text-slate-800 leading-snug mb-2.5">
+              Menghubungkan Ruang Kelas, Kurikulum, dan Eksplorasi Teknologi.
+            </p>
+
+            <!-- Tagline -->
+            <p id="hero-tagline" class="font-display font-semibold text-sm sm:text-base text-teal-700 leading-snug mb-4">
+              Bridging Education and Technology, Exploring AI, Creating Meaningful Learning Experiences.
+            </p>
+
+            <!-- Bio -->
+            <p id="hero-bio" class="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl">
+              Guru Informatika di SMP Negeri 2 Wanareja (Kabupaten Cilacap, Jawa Tengah) berlatar belakang Teknik Informatika/Ilmu Komputer—menghubungkan pembelajaran di kelas, penyusunan kurikulum &amp; kegiatan komunitas guru, serta eksplorasi AI dan media digital praktis.
+            </p>
+          </div>
+
+          <!-- Primary Actions -->
+          <div class="flex flex-wrap items-center gap-3 pt-7 mt-6 border-t border-slate-100">
+            <a
+              href="#karya"
+              class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-semibold text-sm shadow-sm transition-all"
+            >
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+              <span>Jelajahi Karya</span>
+            </a>
+            <a
+              href="#perangkat-adm"
+              class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-200/80 font-semibold text-sm transition-all"
+            >
+              <i data-lucide="folder-open" class="w-4 h-4 text-sky-600"></i>
+              <span>Perangkat &amp; Adm</span>
+            </a>
+            <a
+              href="#kontak"
+              class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white hover:bg-teal-50 text-slate-800 hover:text-teal-700 border border-slate-200 hover:border-teal-200 font-semibold text-sm transition-all"
+            >
+              <i data-lucide="message-circle" class="w-4 h-4 text-teal-600"></i>
+              <span>Terhubung</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Profile Snapshot Card (5 cols) -->
+        <div class="lg:col-span-5 bento-card p-6 sm:p-8 flex flex-col justify-between bg-gradient-to-b from-white to-teal-50/35">
+          <div class="flex flex-col sm:flex-row lg:flex-col items-center sm:items-start lg:items-center text-center sm:text-left lg:text-center gap-4">
+            <div class="relative">
+              <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl p-1 bg-gradient-to-tr from-teal-500 via-teal-400 to-sky-500 shadow-md">
+                <img
+                  id="hero-avatar"
+                  src="https://api.dicebear.com/9.x/notionists/svg?seed=FajarTriH&backgroundColor=ccfbf1"
+                  alt="Foto Profil Fajar Tri H (@fajarth)"
+                  onerror="this.onerror=null;this.src='https://placehold.co/240x240/ccfbf1/0f766e?text=Fajar+Tri+H';"
+                  class="w-full h-full object-cover rounded-xl bg-white"
+                />
+              </div>
+              <span
+                class="absolute -bottom-1.5 -right-1.5 w-7 h-7 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center text-teal-600"
+                aria-hidden="true"
+              >
+                <i data-lucide="cpu" class="w-4 h-4"></i>
+              </span>
+            </div>
+
+            <div class="space-y-1">
+              <p class="font-display font-bold text-slate-900 text-lg" id="profile-card-name">Fajar Tri H</p>
+              <p class="text-xs sm:text-sm font-medium text-slate-500" id="profile-card-school">
+                SMP Negeri 2 Wanareja
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-6 space-y-2.5 text-sm">
+            <div class="flex items-center gap-3 p-3 rounded-xl bg-white/90 border border-slate-200/80">
+              <span class="w-8 h-8 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center shrink-0">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+              </span>
+              <div class="min-w-0">
+                <p class="text-[11px] uppercase tracking-wider font-semibold text-slate-400">Lokasi</p>
+                <p id="meta-location" class="font-medium text-slate-800 truncate">Wanareja, Cilacap — Jawa Tengah</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 p-3 rounded-xl bg-white/90 border border-slate-200/80">
+              <span class="w-8 h-8 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center shrink-0">
+                <i data-lucide="school" class="w-4 h-4"></i>
+              </span>
+              <div class="min-w-0">
+                <p class="text-[11px] uppercase tracking-wider font-semibold text-slate-400">Instansi &amp; Peran</p>
+                <p id="meta-school" class="font-medium text-slate-800 truncate">SMP Negeri 2 Wanareja · Guru Informatika</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 p-3 rounded-xl bg-white/90 border border-slate-200/80">
+              <span class="w-8 h-8 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center shrink-0">
+                <i data-lucide="activity" class="w-4 h-4"></i>
+              </span>
+              <div class="min-w-0">
+                <p class="text-[11px] uppercase tracking-wider font-semibold text-slate-400">Fokus Saat Ini</p>
+                <p id="meta-status" class="font-medium text-slate-800 truncate">Aktif Mengajar &amp; Mengeksplorasi AI Edukasi</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. BENTO GRID: DUA SISI SEIMBANG & KARAKTER -->
+      <section id="tentang" aria-labelledby="tentang-heading" class="space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+          <div>
+            <span class="text-xs font-semibold uppercase tracking-wider text-teal-700">Sekilas Tentang Saya</span>
+            <h2 id="tentang-heading" class="font-display font-bold text-2xl sm:text-3xl text-slate-900 mt-1">
+              Dua Sisi yang Saling Menguatkan
+            </h2>
+          </div>
+          <p class="text-sm text-slate-500 max-w-md">
+            Keseimbangan antara praktik kelas, pengembangan sekolah, dan eksplorasi teknologi yang langsung bermanfaat di lapangan.
+          </p>
+        </div>
+
+        <!-- Balanced Two-Sided Bento Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Left Bento: Education & School Community -->
+          <article class="bento-card p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-3 mb-4">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-50 text-teal-700 text-xs font-semibold border border-teal-200/70">
+                  <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i>
+                  <span id="edu-badge">Pendidikan &amp; Sekolah</span>
+                </span>
+                <span class="text-xs font-medium text-slate-400">Pembelajaran &amp; Akademik</span>
+              </div>
+
+              <h3 id="edu-title" class="font-display font-bold text-xl text-slate-900 mb-2">
+                Pembelajaran, Kurikulum &amp; Komunitas Belajar
+              </h3>
+              <p id="edu-desc" class="text-sm text-slate-600 leading-relaxed mb-6">
+                Mengajar mata pelajaran Informatika di SMP Negeri 2 Wanareja sekaligus terlibat dalam perencanaan akademik dan penguatan budaya belajar rekan sejawat.
+              </p>
+
+              <div id="edu-highlights" class="space-y-3.5"></div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-100 flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 text-xs font-medium">KSP &amp; RKT</span>
+              <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 text-xs font-medium">Rapor Pendidikan</span>
+              <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 text-xs font-medium">Pembelajaran Mendalam &amp; PjBL</span>
+              <span class="px-2.5 py-1 rounded-lg bg-teal-50 text-teal-700 text-xs font-medium">SIGMA SPENDAWA</span>
+            </div>
+          </article>
+
+          <!-- Right Bento: Technology & Practical Exploration -->
+          <article class="bento-card p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-3 mb-4">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 text-sky-700 text-xs font-semibold border border-sky-200/70">
+                  <i data-lucide="code-2" class="w-3.5 h-3.5"></i>
+                  <span id="tech-badge">Teknologi &amp; Eksplorasi</span>
+                </span>
+                <span class="text-xs font-medium text-slate-400">Eksplorasi &amp; Prototipe</span>
+              </div>
+
+              <h3 id="tech-title" class="font-display font-bold text-xl text-slate-900 mb-2">
+                AI, Web Interaktif &amp; Ekosistem Digital
+              </h3>
+              <p id="tech-desc" class="text-sm text-slate-600 leading-relaxed mb-6">
+                Berbekal latar belakang Teknik Informatika/Ilmu Komputer, area ini menjadi ruang eksplorasi praktis dan pengalaman nyata—disajikan secara proporsional sebagai area belajar dan prototipe praktis.
+              </p>
+
+              <div id="tech-highlights" class="space-y-3.5"></div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-100 flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 text-xs font-medium">AI &amp; AI Agent</span>
+              <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 text-xs font-medium">HTML · CSS · JS</span>
+              <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 text-xs font-medium">Canva AI Code · IFP</span>
+              <span class="px-2.5 py-1 rounded-lg bg-sky-50 text-sky-700 text-xs font-medium">Linux · Docker · Cloud</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- Character & Working Style Strip -->
+        <div class="bento-card p-6 sm:p-7">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-5">
+            <div>
+              <h3 class="font-display font-bold text-lg text-slate-900">Karakter &amp; Gaya Kerja</h3>
+              <p class="text-xs sm:text-sm text-slate-500">
+                Pendekatan praktis, kritis, bertahap, dan berorientasi pada manfaat nyata di lapangan.
+              </p>
+            </div>
+            <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-teal-700 bg-teal-50 px-3 py-1 rounded-full self-start sm:self-auto">
+              <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+              <span>Prinsip Keseharian</span>
+            </span>
+          </div>
+
+          <div id="character-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5"></div>
+        </div>
+      </section>
+
+      <!-- 4. ETALASE KARYA & INISIATIF -->
+      <section id="karya" aria-labelledby="karya-heading" class="space-y-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <span class="text-xs font-semibold uppercase tracking-wider text-sky-600">Etalase Karya &amp; Inisiatif</span>
+            <h2 id="karya-heading" class="font-display font-bold text-2xl sm:text-3xl text-slate-900 mt-1">
+              Eksplorasi, Media &amp; Proyek Pilihan
+            </h2>
+            <p class="text-sm text-slate-500 mt-1 max-w-xl">
+              Beberapa inisiatif yang disusun dan dieksplorasi untuk mendukung pembelajaran interaktif, alur kerja guru, dan ekosistem sekolah.
+            </p>
+          </div>
+
+          <!-- Category Filters -->
+          <div id="filter-buttons" role="group" aria-label="Filter kategori karya" class="flex flex-wrap gap-2">
+            <button
+              type="button"
+              data-filter="all"
+              class="filter-btn active px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-teal-600 text-white shadow-sm transition-all"
+            >
+              Semua
+            </button>
+            <button
+              type="button"
+              data-filter="edtech"
+              class="filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 hover:bg-teal-50 hover:text-teal-700 border border-slate-200 transition-all"
+            >
+              Media &amp; Game Edukasi
+            </button>
+            <button
+              type="button"
+              data-filter="ai"
+              class="filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 hover:bg-sky-50 hover:text-sky-700 border border-slate-200 transition-all"
+            >
+              AI &amp; Otomatisasi
+            </button>
+            <button
+              type="button"
+              data-filter="community"
+              class="filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 hover:bg-teal-50 hover:text-teal-700 border border-slate-200 transition-all"
+            >
+              Komunitas &amp; Sekolah
+            </button>
+          </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+      </section>
+
+      <!-- 5. PERANGKAT & ADMINISTRASI PEMBELAJARAN (CLEAN COMPACT CARDS) -->
+      <section id="perangkat-adm" aria-labelledby="perangkat-heading" class="space-y-6">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-teal-700">Dokumen &amp; Tautan</span>
+          <h2 id="perangkat-heading" class="font-display font-bold text-2xl sm:text-3xl text-slate-900 mt-1">
+            Perangkat &amp; Administrasi Pembelajaran
+          </h2>
+        </div>
+
+        <!-- Clean Compact Cards: Category Badge, Icon, Title, and Direct Link Button ONLY -->
+        <div id="resources-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+      </section>
+
+      <!-- 6. FILOSOFI & PRINSIP KERJA -->
+      <section id="filosofi" aria-labelledby="filosofi-heading">
+        <div class="bento-card p-7 sm:p-10 lg:p-12 bg-gradient-to-br from-teal-50/80 via-white to-sky-50/80 border-teal-200/70">
+          <div class="max-w-3xl mx-auto text-center space-y-5">
+            <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white text-teal-700 border border-teal-200/80 text-xs font-semibold">
+              <i data-lucide="quote" class="w-3.5 h-3.5"></i>
+              <span id="filosofi-heading">Filosofi &amp; Prinsip Kerja</span>
+            </span>
+
+            <blockquote id="philosophy-quote" class="font-display font-bold text-xl sm:text-2xl lg:text-[1.7rem] text-slate-900 leading-snug">
+              “Teknologi seharusnya membantu manusia bekerja lebih baik, bukan membuat pekerjaan semakin rumit.”
+            </blockquote>
+
+            <p id="philosophy-note" class="text-sm sm:text-base text-slate-600 leading-relaxed">
+              Dalam konteks pendidikan, teknologi bukan sekadar alat untuk menggantikan metode lama, tetapi sarana untuk menciptakan pengalaman belajar yang lebih bermakna, interaktif, dan sesuai dengan kebutuhan peserta didik—dengan mengutamakan solusi yang sederhana, realistis, dan fungsional di lapangan.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 7. FOOTER & TAUTAN (Clean — zero admin or placeholder text) -->
+    <footer id="kontak" class="border-t border-slate-200/80 bg-white/90 backdrop-blur-sm">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-slate-100">
+          <div class="space-y-1.5 max-w-lg">
+            <p class="font-display font-bold text-lg text-slate-900">
+              Mari Terhubung &amp; Berbagi Gagasan
+            </p>
+            <p class="text-sm text-slate-600">
+              Terbuka untuk diskusi seputar pembelajaran Informatika, media interaktif, AI di pendidikan, perangkat pembelajaran, maupun kolaborasi komunitas belajar.
+            </p>
+          </div>
+
+          <div id="social-links" class="flex flex-wrap items-center gap-2.5"></div>
+        </div>
+
+        <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+          <p id="footer-copyright" class="select-none">
+            © 2026 Fajar Tri H (@fajarth)
+          </p>
+          <div class="flex items-center gap-3 text-slate-400">
+            <span>SMP Negeri 2 Wanareja · Cilacap</span>
+            <span aria-hidden="true">·</span>
+            <a
+              href="#admin"
+              id="footer-admin-link"
+              class="text-slate-400 hover:text-teal-700 transition-colors"
+            >
+              page for me
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- PROJECT DETAIL MODAL                                                  -->
+  <!-- ===================================================================== -->
+  <div
+    id="project-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/45 backdrop-blur-xs fade-in"
+  >
+    <div class="bg-white border border-slate-200 rounded-3xl max-w-lg w-full p-6 sm:p-7 shadow-2xl space-y-5">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <span id="modal-category" class="inline-block px-3 py-1 rounded-full bg-teal-50 text-teal-700 text-xs font-semibold mb-2">
+            Kategori
+          </span>
+          <h3 id="modal-title" class="font-display font-bold text-xl text-slate-900">Judul Proyek</h3>
+        </div>
+        <button
+          id="modal-close"
+          type="button"
+          aria-label="Tutup pratinjau"
+          class="w-9 h-9 rounded-xl border border-slate-200 text-slate-500 hover:text-slate-800 hover:bg-slate-50 flex items-center justify-center transition-colors"
+        >
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <p id="modal-summary" class="text-sm text-slate-600 leading-relaxed"></p>
+
+      <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 space-y-2">
+        <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Sorotan &amp; Catatan Eksplorasi</p>
+        <ul id="modal-highlights" class="space-y-1.5 text-xs sm:text-sm text-slate-700 list-disc list-inside"></ul>
+      </div>
+
+      <div id="modal-tags" class="flex flex-wrap gap-1.5"></div>
+
+      <div class="pt-2 flex flex-wrap items-center justify-end gap-2 border-t border-slate-100">
+        <button
+          id="modal-done"
+          type="button"
+          class="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 hover:bg-slate-100 transition-colors"
+        >
+          Tutup
+        </button>
+        <a
+          id="modal-external-link"
+          href="#"
+          class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-teal-600 hover:bg-teal-700 text-white transition-colors"
+        >
+          <span id="modal-link-label">Buka Tautan</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- HIDDEN ADMIN VIEW (Accessed via #admin, ?admin=1, or 5x click @fajarth)-->
+  <!-- ===================================================================== -->
+  <div id="admin-view" class="hidden min-h-screen bg-slate-50">
+
+    <!-- A. ADMIN LOGIN GATE -->
+    <div id="admin-login-gate" class="min-h-screen flex items-center justify-center p-4">
+      <div class="bento-card max-w-md w-full p-7 sm:p-9 space-y-6 bg-white">
+        <div class="flex items-center justify-between">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 text-teal-800 border border-teal-200/80 text-xs font-semibold">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-teal-600"></i>
+            <span>Akses Terbatas</span>
+          </span>
+          <button
+            type="button"
+            id="login-back-public"
+            class="inline-flex items-center gap-1 text-xs font-semibold text-slate-500 hover:text-teal-700 transition-colors"
+          >
+            <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+            <span>Halaman Publik</span>
+          </button>
+        </div>
+
+        <div class="space-y-1.5">
+          <h1 class="font-display font-bold text-2xl text-slate-900">Masuk Admin Profil</h1>
+          <p class="text-xs sm:text-sm text-slate-500">
+            Masukkan kata sandi pengelola untuk mengatur konten profil, karya, dan tautan perangkat pembelajaran.
+          </p>
+        </div>
+
+        <form id="admin-login-form" class="space-y-4">
+          <div>
+            <label for="admin-password-input" class="block text-xs font-semibold text-slate-700 mb-1.5">
+              Kata Sandi Admin
+            </label>
+            <div class="relative">
+              <input
+                id="admin-password-input"
+                type="password"
+                autocomplete="current-password"
+                required
+                placeholder="Masukkan kata sandi..."
+                class="w-full pl-3.5 pr-10 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-500/15"
+              />
+              <button
+                type="button"
+                id="toggle-password-visibility"
+                aria-label="Tampilkan atau sembunyikan kata sandi"
+                class="absolute inset-y-0 right-0 px-3 flex items-center text-slate-400 hover:text-slate-700"
+              >
+                <i data-lucide="eye" class="w-4 h-4"></i>
+              </button>
+            </div>
+            <p id="admin-login-error" class="hidden text-xs font-medium text-rose-600 mt-1.5">
+              Kata sandi tidak sesuai. Silakan coba lagi.
+            </p>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-semibold text-sm shadow-sm transition-colors"
+          >
+            <i data-lucide="lock-open" class="w-4 h-4"></i>
+            <span>Masuk ke Dashboard</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- B. AUTHENTICATED ADMIN DASHBOARD PAGE -->
+    <div id="admin-dashboard" class="hidden min-h-screen flex-col">
+      <!-- Top Admin Bar -->
+      <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
+          <div class="flex items-center gap-3 min-w-0">
+            <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-teal-600 to-sky-600 text-white font-display font-bold text-sm flex items-center justify-center shrink-0">
+              <i data-lucide="sliders-horizontal" class="w-4 h-4"></i>
+            </span>
+            <div class="min-w-0">
+              <h1 class="font-display font-bold text-slate-900 text-sm sm:text-base truncate">
+                Dashboard Pengelola Profil
+              </h1>
+              <p class="text-xs text-slate-500 truncate">Fajar Tri H (@fajarth)</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 shrink-0">
+            <button
+              type="button"
+              id="admin-view-public-btn"
+              class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-100 hover:bg-teal-50 text-slate-700 hover:text-teal-800 border border-slate-200 transition-colors"
+            >
+              <i data-lucide="eye" class="w-3.5 h-3.5 text-teal-600"></i>
+              <span>Lihat Halaman Publik</span>
+            </button>
+            <button
+              type="button"
+              id="admin-logout-btn"
+              class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 transition-colors"
+            >
+              <i data-lucide="log-out" class="w-3.5 h-3.5"></i>
+              <span>Logout</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Admin Navigation Tabs -->
+        <div class="border-t border-slate-100 bg-white">
+          <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center gap-1.5 overflow-x-auto admin-scroll">
+            <button type="button" data-admin-tab="identity" class="admin-tab px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap bg-teal-600 text-white">
+              1. Identitas &amp; Hero
+            </button>
+            <button type="button" data-admin-tab="pillars" class="admin-tab px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap bg-slate-100 text-slate-600 hover:bg-slate-200/70">
+              2. Dua Pilar &amp; Karakter
+            </button>
+            <button type="button" data-admin-tab="projects" class="admin-tab px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap bg-slate-100 text-slate-600 hover:bg-slate-200/70">
+              3. Karya &amp; Inisiatif
+            </button>
+            <button type="button" data-admin-tab="resources" class="admin-tab px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap bg-slate-100 text-slate-600 hover:bg-slate-200/70">
+              4. Perangkat &amp; Adm
+            </button>
+            <button type="button" data-admin-tab="philosophy" class="admin-tab px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap bg-slate-100 text-slate-600 hover:bg-slate-200/70">
+              5. Filosofi &amp; Kontak
+            </button>
+            <button type="button" data-admin-tab="security" class="admin-tab px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap bg-slate-100 text-slate-600 hover:bg-slate-200/70">
+              6. Password Admin
+            </button>
+            <button type="button" data-admin-tab="export" class="admin-tab px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap bg-slate-100 text-slate-600 hover:bg-slate-200/70">
+              7. Ekspor &amp; Deploy GitHub
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Admin Workspace -->
+      <div class="max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 space-y-6">
+
+        <!-- TAB 1: IDENTITY & HERO -->
+        <section data-admin-panel="identity" class="admin-panel bento-card p-6 sm:p-8 space-y-5">
+          <div>
+            <h2 class="font-display font-bold text-lg text-slate-900">Identitas Utama &amp; Bagian Hero</h2>
+            <p class="text-xs text-slate-500">Perubahan langsung diperbarui pada tampilan publik.</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Nama Tampilan</label>
+              <input id="adm-id-name" type="text" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-teal-600" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Handle</label>
+              <input id="adm-id-handle" type="text" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-teal-600" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Badge Peran</label>
+            <input id="adm-id-role" type="text" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-teal-600" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Headline Utama</label>
+            <input id="adm-id-headline" type="text" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-teal-600" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Tagline</label>
+            <input id="adm-id-tagline" type="text" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-teal-600" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Bio Singkat</label>
+            <textarea id="adm-id-bio" rows="3" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-teal-600"></textarea>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">URL Foto Profil</label>
+              <input id="adm-id-avatar" type="text" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-teal-600" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Lokasi</label>
+              <input id="adm-id-location" type="text" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-teal-600" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Nama Sekolah (Singkat)</label>
+              <input id="adm-id-school-short" type="text" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-teal-600" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Instansi &amp; Peran</label>
+              <input id="adm-id-school-full" type="text" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-teal-600" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Fokus Saat Ini</label>
+              <input id="adm-id-status" type="text" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-teal-600" />
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 2: PILLARS & CHARACTER -->
+        <section data-admin-panel="pillars" class="admin-panel hidden space-y-6">
+          <div class="bento-card p-6 sm:p-7 space-y-4">
+            <h2 class="font-display font-bold text-base text-teal-800">Pilar 1: Pendidikan &amp; Sekolah</h2>
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Judul Bagian</label>
+              <input id="adm-edu-title" type="text" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Ringkasan</label>
+              <textarea id="adm-edu-desc" rows="2" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm"></textarea>
+            </div>
+            <div id="adm-edu-items" class="space-y-3"></div>
+          </div>
+
+          <div class="bento-card p-6 sm:p-7 space-y-4">
+            <h2 class="font-display font-bold text-base text-sky-800">Pilar 2: Teknologi &amp; Eksplorasi</h2>
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Judul Bagian</label>
+              <input id="adm-tech-title" type="text" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Ringkasan</label>
+              <textarea id="adm-tech-desc" rows="2" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm"></textarea>
+            </div>
+            <div id="adm-tech-items" class="space-y-3"></div>
+          </div>
+
+          <div class="bento-card p-6 sm:p-7 space-y-4">
+            <h2 class="font-display font-bold text-base text-slate-900">Karakter &amp; Gaya Kerja</h2>
+            <div id="adm-character-items" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
+          </div>
+        </section>
+
+        <!-- TAB 3: PROJECTS -->
+        <section data-admin-panel="projects" class="admin-panel hidden space-y-4">
+          <div class="bento-card p-5 sm:p-6 flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h2 class="font-display font-bold text-lg text-slate-900">Karya &amp; Inisiatif</h2>
+              <p class="text-xs text-slate-500">Tambah, ubah urutan, perbarui tautan, atau hapus karya yang ditampilkan.</p>
+            </div>
+            <button
+              id="adm-add-project"
+              type="button"
+              class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-xs sm:text-sm font-semibold shadow-2xs"
+            >
+              <i data-lucide="plus" class="w-4 h-4"></i>
+              <span>Tambah Karya</span>
+            </button>
+          </div>
+          <div id="adm-projects-list" class="space-y-4"></div>
+        </section>
+
+        <!-- TAB 4: LEARNING & ADMINISTRATION RESOURCES -->
+        <section data-admin-panel="resources" class="admin-panel hidden space-y-4">
+          <div class="bento-card p-5 sm:p-6 flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h2 class="font-display font-bold text-lg text-slate-900">Perangkat &amp; Administrasi Pembelajaran</h2>
+              <p class="text-xs text-slate-500">Kartu tautan ringkas (badge kategori, judul, dan tombol tautan langsung).</p>
+            </div>
+            <button
+              id="adm-add-resource"
+              type="button"
+              class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-xs sm:text-sm font-semibold shadow-2xs"
+            >
+              <i data-lucide="plus" class="w-4 h-4"></i>
+              <span>Tambah Tautan</span>
+            </button>
+          </div>
+          <div id="adm-resources-list" class="space-y-3"></div>
+        </section>
+
+        <!-- TAB 5: PHILOSOPHY & CONTACT LINKS -->
+        <section data-admin-panel="philosophy" class="admin-panel hidden space-y-6">
+          <div class="bento-card p-6 sm:p-7 space-y-4">
+            <h2 class="font-display font-bold text-lg text-slate-900">Filosofi &amp; Prinsip Kerja</h2>
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Kutipan Utama</label>
+              <textarea id="adm-phil-quote" rows="2" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm"></textarea>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Penjelasan Pendukung</label>
+              <textarea id="adm-phil-note" rows="3" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm"></textarea>
+            </div>
+          </div>
+
+          <div class="bento-card p-6 sm:p-7 space-y-4">
+            <div class="flex items-center justify-between gap-2">
+              <div>
+                <h2 class="font-display font-bold text-lg text-slate-900">Tautan Kontak &amp; Media Sosial</h2>
+                <p class="text-xs text-slate-500">Ditampilkan pada bagian footer halaman.</p>
+              </div>
+              <button
+                id="adm-add-link"
+                type="button"
+                class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 text-white text-xs font-semibold"
+              >
+                <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                <span>Tambah Tautan</span>
+              </button>
+            </div>
+            <div id="adm-links-list" class="space-y-2.5"></div>
+          </div>
+        </section>
+
+        <!-- TAB 6: ADMIN PASSWORD SECURITY -->
+        <section data-admin-panel="security" class="admin-panel hidden">
+          <div class="bento-card p-6 sm:p-8 max-w-xl space-y-5">
+            <div>
+              <h2 class="font-display font-bold text-lg text-slate-900">Pengaturan Password Admin</h2>
+              <p class="text-xs text-slate-500 mt-1">
+                Ubah kata sandi halaman admin. Setelah mengganti password, unduh ulang <code class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-800">index.html</code> pada tab Ekspor agar password baru ikut tersimpan permanen di GitHub Pages.
+              </p>
+            </div>
+
+            <form id="adm-change-password-form" class="space-y-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Password Baru</label>
+                <input
+                  id="adm-new-password"
+                  type="password"
+                  minlength="4"
+                  required
+                  placeholder="Minimal 4 karakter..."
+                  class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-teal-600"
+                />
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Konfirmasi Password Baru</label>
+                <input
+                  id="adm-confirm-password"
+                  type="password"
+                  minlength="4"
+                  required
+                  placeholder="Ulangi password baru..."
+                  class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-teal-600"
+                />
+              </div>
+
+              <button
+                type="submit"
+                class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-xs sm:text-sm font-semibold shadow-2xs transition-colors"
+              >
+                <i data-lucide="key-round" class="w-4 h-4"></i>
+                <span>Perbarui Password Admin</span>
+              </button>
+            </form>
+          </div>
+        </section>
+
+        <!-- TAB 7: EXPORT & DEPLOY HELPER -->
+        <section data-admin-panel="export" class="admin-panel hidden space-y-5">
+          <div class="bento-card p-6 sm:p-8 space-y-5">
+            <div>
+              <h2 class="font-display font-bold text-lg text-slate-900">Ekspor &amp; Deploy ke GitHub Pages</h2>
+              <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                Simpan pratinjau ke browser Anda, atau unduh file <code class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-800 text-xs">index.html</code> mandiri yang sudah memuat seluruh perubahan terbaru untuk langsung di-push ke repositori GitHub Pages.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              <button
+                id="adm-save-browser"
+                type="button"
+                class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-xs sm:text-sm font-semibold shadow-2xs transition-colors"
+              >
+                <i data-lucide="save" class="w-4 h-4"></i>
+                <span>Simpan Pratinjau Browser</span>
+              </button>
+
+              <button
+                id="adm-download-html"
+                type="button"
+                class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white text-xs sm:text-sm font-semibold shadow-2xs transition-colors"
+              >
+                <i data-lucide="file-down" class="w-4 h-4"></i>
+                <span>Unduh Standalone index.html</span>
+              </button>
+
+              <button
+                id="adm-download-datajs"
+                type="button"
+                class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-semibold transition-colors"
+              >
+                <i data-lucide="file-code" class="w-4 h-4"></i>
+                <span>Unduh data.js</span>
+              </button>
+
+              <button
+                id="adm-copy-datajs"
+                type="button"
+                class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs sm:text-sm font-semibold transition-colors"
+              >
+                <i data-lucide="copy" class="w-4 h-4"></i>
+                <span>Salin Snippet PROFILE_DATA</span>
+              </button>
+
+              <button
+                id="adm-reset-default"
+                type="button"
+                class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 text-xs sm:text-sm font-semibold transition-colors"
+              >
+                <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                <span>Reset ke Default</span>
+              </button>
+            </div>
+
+            <div class="space-y-1.5">
+              <label class="block text-xs font-semibold text-slate-700">Pratinjau Konfigurasi PROFILE_DATA</label>
+              <textarea
+                id="adm-export-preview"
+                rows="12"
+                readonly
+                class="w-full px-3.5 py-2.5 rounded-2xl border border-slate-300 bg-slate-50 text-slate-700 font-mono text-xs focus:outline-none"
+              ></textarea>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- DATA CONFIGURATION, AUTHENTICATION & APPLICATION LOGIC                -->
+  <!-- ===================================================================== -->
+  <script>
+    const STORAGE_KEY = "fajarth_profile_data_v2";
+    const ADMIN_SESSION_KEY = "fajarth_admin_authenticated_v2";
+
+    // Simple deterministic string hash so plain password is not directly visible in UI
+    function hashSecret(str) {
+      let h = 2166136261;
+      const input = String(str ?? "");
+      for (let i = 0; i < input.length; i++) {
+        h ^= input.charCodeAt(i);
+        h = Math.imul(h, 16777619);
+      }
+      return "fnv1a_" + (h >>> 0).toString(16);
+    }
+
+    /**
+     * KONFIGURASI UTAMA PROFIL & ADMIN
+     */
+    const DEFAULT_PROFILE_DATA = {
+      admin: {
+        passwordHash: hashSecret("Arfadevanka@1112"),
+      },
+
+      identity: {
+        name: "Fajar Tri H",
+        handle: "@fajarth",
+        roleBadge: "Educator · Technology Enthusiast · Digital Learning Explorer",
+        headline: "Menghubungkan Ruang Kelas, Kurikulum, dan Eksplorasi Teknologi.",
+        tagline: "Bridging Education and Technology, Exploring AI, Creating Meaningful Learning Experiences.",
+        bio: "Guru Informatika di SMP Negeri 2 Wanareja (Kabupaten Cilacap, Jawa Tengah) berlatar belakang Teknik Informatika/Ilmu Komputer—menghubungkan pembelajaran di kelas, penyusunan kurikulum & kegiatan komunitas guru, serta eksplorasi AI dan media digital praktis.",
+        avatarUrl: "https://api.dicebear.com/9.x/notionists/svg?seed=FajarTriH&backgroundColor=ccfbf1",
+        location: "Wanareja, Cilacap — Jawa Tengah",
+        schoolShort: "SMP Negeri 2 Wanareja",
+        schoolFull: "SMP Negeri 2 Wanareja · Guru Informatika",
+        status: "Aktif Mengajar & Mengeksplorasi AI Edukasi",
+      },
+
+      pillars: {
+        education: {
+          badge: "Pendidikan & Sekolah",
+          title: "Pembelajaran, Kurikulum & Komunitas Belajar",
+          description:
+            "Mengajar mata pelajaran Informatika di SMP Negeri 2 Wanareja sekaligus terlibat dalam perencanaan akademik dan penguatan budaya belajar rekan sejawat.",
+          items: [
+            {
+              icon: "book-open",
+              title: "Pembelajaran Informatika",
+              detail:
+                "Mengampu pembelajaran Informatika dengan pendekatan pembelajaran mendalam, kontekstual, Project-Based Learning (PjBL), serta penyusunan modul ajar, LKPD, dan asesmen.",
+            },
+            {
+              icon: "clipboard-check",
+              title: "Kurikulum & Mutu Akademik",
+              detail:
+                "Terlibat dalam penyusunan KSP, RKT, analisis dan tindak lanjut Rapor Pendidikan, program kokurikuler, serta dokumentasi supervisi dan evaluasi pembelajaran.",
+            },
+            {
+              icon: "users",
+              title: "Komunitas Belajar SIGMA SPENDAWA",
+              detail:
+                "Menggerakkan Sinergi Guru Maju SMP Negeri 2 Wanareja untuk kolaborasi, refleksi, peningkatan kompetensi, serta berbagi praktik pemanfaatan IFP dan AI.",
+            },
+          ],
+        },
+
+        technology: {
+          badge: "Teknologi & Eksplorasi",
+          title: "AI, Web Interaktif & Ekosistem Digital",
+          description:
+            "Ruang eksplorasi dan pengalaman berbasis latar belakang Teknik Informatika/Ilmu Komputer—disajikan secara proporsional sebagai area belajar dan prototipe praktis.",
+          items: [
+            {
+              icon: "bot",
+              title: "AI, AI Agent & Otomatisasi Kerja",
+              detail:
+                "Mengeksplorasi pemanfaatan AI, AI Agent, integrasi layanan/model AI, serta otomatisasi alur kerja pendidikan secara terarah dan praktis.",
+            },
+            {
+              icon: "layout-template",
+              title: "Web & Media Pembelajaran Interaktif",
+              detail:
+                "Mencoba menyusun prototipe web (HTML, CSS, JavaScript) dan media pembelajaran interaktif berbasis Canva AI Code yang terstruktur dan mudah digunakan siswa.",
+            },
+            {
+              icon: "server",
+              title: "Ekosistem Sekolah & Infrastruktur",
+              detail:
+                "Memanfaatkan Chromebook, Interactive Flat Panel (IFP), dan Google Sites, serta mengeksplorasi Linux, Docker, jaringan, dan cloud.",
+            },
+          ],
+        },
+      },
+
+      characters: [
+        {
+          icon: "wrench",
+          title: "Practical Problem Solver",
+          desc: "Mengutamakan solusi yang benar-benar bisa diterapkan di lapangan dibanding konsep rumit yang sulit dipakai.",
+        },
+        {
+          icon: "lightbulb",
+          title: "Praktisi Pembelajaran Aktif",
+          desc: "Merancang pengalaman belajar yang lebih interaktif, kontekstual, dan relevan dengan keseharian peserta didik.",
+        },
+        {
+          icon: "trending-up",
+          title: "Continuous Learner",
+          desc: "Terus belajar, mencoba pendekatan baru, dan mengembangkan kemampuan secara bertahap dan konsisten.",
+        },
+        {
+          icon: "search-check",
+          title: "Critical Thinker",
+          desc: "Menelaah alasan, mekanisme, kelebihan, keterbatasan, serta konsekuensi sebelum memakai suatu teknologi.",
+        },
+        {
+          icon: "zap",
+          title: "Efficiency Oriented",
+          desc: "Menghargai kesederhanaan, efektivitas, dan efisiensi tanpa menumpuk fitur yang tidak memberi manfaat nyata.",
+        },
+        {
+          icon: "telescope",
+          title: "Future Oriented",
+          desc: "Tertarik pada masa depan pendidikan, kecerdasan buatan, dan transformasi digital yang tetap berpihak pada manusia.",
+        },
+      ],
+
+      projects: [
+        {
+          id: "rpp-prompt-gen",
+          title: "RPP Prompt Generator (Pembelajaran Mendalam)",
+          category: "ai",
+          categoryLabel: "AI & Otomatisasi",
+          badgeColor: "bg-sky-50 text-sky-700 border-sky-200/70",
+          year: "Aplikasi Web",
+          summary:
+            "Aplikasi web generator prompt penyusunan RPP/Modul Ajar bagi guru SMP yang selaras dengan pendekatan Pembelajaran Mendalam dan standar kurikulum Fase D untuk perencanaan belajar yang cepat dan terstruktur.",
+          highlights: [
+            "Membantu guru menyusun prompt terstruktur sesuai elemen Pembelajaran Mendalam dan capaian Fase D.",
+            "Alur pengisian ringkas sehingga langsung menghasilkan instruksi siap pakai untuk asisten AI.",
+            "Dapat diakses langsung melalui web ringan berbasis GitHub Pages.",
+          ],
+          tags: ["Prompt Generator", "RPP & Modul Ajar", "Pembelajaran Mendalam", "Fase D"],
+          link: "https://fajarth-lab.github.io/prompt-gen",
+          linkText: "Buka Aplikasi",
+        },
+        {
+          id: "virtual-world",
+          title: "Informatika Virtual World",
+          category: "edtech",
+          categoryLabel: "Media & Game Edukasi",
+          badgeColor: "bg-teal-50 text-teal-700 border-teal-200/70",
+          year: "Game & Simulasi",
+          summary:
+            "Lingkungan belajar Informatika berbasis permainan interaktif modular—menggabungkan petualangan, simulasi, dan puzzle, termasuk modul Virtual Computer Lab berperspektif isometrik.",
+          highlights: [
+            "Disusun secara modular sebagai aplikasi HTML mandiri yang bersih dan responsif.",
+            "Menghadirkan simulasi Virtual Computer Lab isometrik untuk eksplorasi konsep perangkat komputer.",
+            "Mengubah materi konsep Informatika menjadi aktivitas eksplorasi yang menyenangkan.",
+          ],
+          tags: ["HTML5 Modular", "Virtual Computer Lab", "Isometrik", "Gamifikasi"],
+          link: "https://fajarth-lab.github.io/informatika-vw/",
+          linkText: "Mainkan / Buka",
+        },
+        {
+          id: "guru-ai",
+          title: "GURU.AI",
+          category: "ai",
+          categoryLabel: "AI & Otomatisasi",
+          badgeColor: "bg-sky-50 text-sky-700 border-sky-200/70",
+          year: "Konsep & Prototipe",
+          summary:
+            "Inisiatif asisten AI berbasis web untuk membantu pekerjaan guru dan pengelolaan sekolah—mulai dari perangkat pembelajaran, materi/LKPD, kurikulum, asesmen, hingga administrasi akademik.",
+          highlights: [
+            "Alur interaksi terarah: pengguna memberi satu instruksi, AI membantu mengerjakan rangkaian tugas pendukung.",
+            "Pengguna tetap memegang kendali penuh untuk memeriksa, merevisi, dan memfinalisasi hasil.",
+            "Mencerminkan eksplorasi AI Agent dan otomatisasi pekerjaan pendidikan yang realistis.",
+          ],
+          tags: ["AI Agent", "Otomatisasi Kerja", "Perangkat Ajar", "Administrasi"],
+          link: "#placeholder-guru-ai",
+          linkText: "Lihat Konsep",
+        },
+        {
+          id: "canva-ai-code",
+          title: "Media Interaktif Canva AI Code",
+          category: "edtech",
+          categoryLabel: "Media & Game Edukasi",
+          badgeColor: "bg-teal-50 text-teal-700 border-teal-200/70",
+          year: "Media Belajar",
+          summary:
+            "Website pembelajaran interaktif dengan struktur materi jelas, navigasi sederhana, serta LKPD terintegrasi untuk mendukung aktivitas belajar siswa.",
+          highlights: [
+            "Mencakup topik browser & mesin pencari, sumber informasi digital, pers digital & jurnalistik, serta informasi pribadi & hukum privasi.",
+            "Dirancang agar mudah diikuti peserta didik, tidak terlalu padat, dan berfokus pada eksplorasi serta latihan.",
+          ],
+          tags: ["Canva AI Code", "LKPD Interaktif", "Literasi Digital", "Privasi Data"],
+          link: "#placeholder-canva-code",
+          linkText: "Lihat Materi",
+        },
+        {
+          id: "sigma-spendawa",
+          title: "SIGMA SPENDAWA & Ekosistem Digital",
+          category: "community",
+          categoryLabel: "Komunitas & Sekolah",
+          badgeColor: "bg-teal-50 text-teal-700 border-teal-200/70",
+          year: "Komunitas Sekolah",
+          summary:
+            "Kegiatan komunitas belajar Sinergi Guru Maju SMP Negeri 2 Wanareja serta pemanfaatan ekosistem digital sekolah untuk kolaborasi, refleksi, dan berbagi praktik.",
+          highlights: [
+            "Mendorong budaya refleksi pembelajaran, kolaborasi antarguru, dan peningkatan kompetensi.",
+            "Menghubungkan pemanfaatan Interactive Flat Panel (IFP), Chromebook, Google Sites, dan AI di lingkungan sekolah.",
+          ],
+          tags: ["SIGMA SPENDAWA", "Komunitas Belajar", "IFP & Chromebook", "Ekosistem Sekolah"],
+          link: "#placeholder-sigma",
+          linkText: "Detail Kegiatan",
+        },
+      ],
+
+      learningResources: [
+        {
+          id: "modul-ajar-rpp",
+          category: "Perangkat Pembelajaran",
+          badgeStyle: "bg-teal-50 text-teal-700 border-teal-200/70",
+          icon: "book-open",
+          title: "Modul Ajar & RPP Informatika",
+          url: "#placeholder-modul-ajar",
+          actionLabel: "Buka Tautan",
+        },
+        {
+          id: "lkpd-asesmen",
+          category: "Asesmen & LKPD",
+          badgeStyle: "bg-sky-50 text-sky-700 border-sky-200/70",
+          icon: "clipboard-list",
+          title: "LKPD, Instrumen Asesmen & Rubrik",
+          url: "#placeholder-lkpd",
+          actionLabel: "Buka Tautan",
+        },
+        {
+          id: "adm-pembelajaran",
+          category: "Administrasi Mengajar",
+          badgeStyle: "bg-teal-50 text-teal-700 border-teal-200/70",
+          icon: "folder-open",
+          title: "Administrasi Pembelajaran Harian",
+          url: "#placeholder-adm-harian",
+          actionLabel: "Buka Tautan",
+        },
+        {
+          id: "kurikulum-akademik",
+          category: "Kurikulum & Akademik",
+          badgeStyle: "bg-sky-50 text-sky-700 border-sky-200/70",
+          icon: "layers",
+          title: "Dokumen KSP, RKT & Rapor Pendidikan",
+          url: "#placeholder-kurikulum",
+          actionLabel: "Buka Tautan",
+        },
+        {
+          id: "media-panduan-ifp",
+          category: "Media & Panduan",
+          badgeStyle: "bg-teal-50 text-teal-700 border-teal-200/70",
+          icon: "sparkles",
+          title: "Media Interaktif & Panduan IFP / AI",
+          url: "#placeholder-panduan-ifp",
+          actionLabel: "Buka Tautan",
+        },
+        {
+          id: "arsip-komunitas",
+          category: "Komunitas & Supervisi",
+          badgeStyle: "bg-sky-50 text-sky-700 border-sky-200/70",
+          icon: "check-square",
+          title: "Arsip SIGMA SPENDAWA & Supervisi",
+          url: "#placeholder-arsip-sigma",
+          actionLabel: "Buka Tautan",
+        },
+      ],
+
+      philosophy: {
+        quote:
+          "“Teknologi seharusnya membantu manusia bekerja lebih baik, bukan membuat pekerjaan semakin rumit.”",
+        note:
+          "Dalam konteks pendidikan, teknologi bukan sekadar alat untuk menggantikan metode lama, tetapi sarana untuk menciptakan pengalaman belajar yang lebih bermakna, interaktif, dan sesuai dengan kebutuhan peserta didik—dengan mengutamakan solusi yang sederhana, realistis, dan fungsional di lapangan.",
+      },
+
+      links: [
+        {
+          label: "GitHub",
+          icon: "github",
+          url: "https://github.com/fajarth-lab",
+          style: "bg-slate-900 hover:bg-slate-800 text-white",
+        },
+        {
+          label: "LinkedIn",
+          icon: "linkedin",
+          url: "#placeholder-linkedin",
+          style: "bg-sky-600 hover:bg-sky-700 text-white",
+        },
+        {
+          label: "Email",
+          icon: "mail",
+          url: "#placeholder-email",
+          style: "bg-teal-600 hover:bg-teal-700 text-white",
+        },
+        {
+          label: "Tautan Lainnya",
+          icon: "globe",
+          url: "#placeholder-links",
+          style: "bg-slate-100 hover:bg-slate-200 text-slate-800",
+        },
+      ],
+    };
+
+    function deepClone(obj) {
+      return JSON.parse(JSON.stringify(obj));
+    }
+
+    function loadInitialData() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          return {
+            ...deepClone(DEFAULT_PROFILE_DATA),
+            ...parsed,
+            admin: { ...deepClone(DEFAULT_PROFILE_DATA.admin), ...(parsed.admin || {}) },
+            identity: { ...deepClone(DEFAULT_PROFILE_DATA.identity), ...(parsed.identity || {}) },
+            pillars: {
+              education: {
+                ...deepClone(DEFAULT_PROFILE_DATA.pillars.education),
+                ...(parsed.pillars?.education || {}),
+                items: Array.isArray(parsed.pillars?.education?.items)
+                  ? parsed.pillars.education.items
+                  : deepClone(DEFAULT_PROFILE_DATA.pillars.education.items),
+              },
+              technology: {
+                ...deepClone(DEFAULT_PROFILE_DATA.pillars.technology),
+                ...(parsed.pillars?.technology || {}),
+                items: Array.isArray(parsed.pillars?.technology?.items)
+                  ? parsed.pillars.technology.items
+                  : deepClone(DEFAULT_PROFILE_DATA.pillars.technology.items),
+              },
+            },
+            characters: Array.isArray(parsed.characters)
+              ? parsed.characters
+              : deepClone(DEFAULT_PROFILE_DATA.characters),
+            projects: Array.isArray(parsed.projects)
+              ? parsed.projects
+              : deepClone(DEFAULT_PROFILE_DATA.projects),
+            learningResources: Array.isArray(parsed.learningResources)
+              ? parsed.learningResources
+              : deepClone(DEFAULT_PROFILE_DATA.learningResources),
+            philosophy: { ...deepClone(DEFAULT_PROFILE_DATA.philosophy), ...(parsed.philosophy || {}) },
+            links: Array.isArray(parsed.links) ? parsed.links : deepClone(DEFAULT_PROFILE_DATA.links),
+          };
+        }
+      } catch (e) {
+        console.warn("Memuat konfigurasi default.", e);
+      }
+      return deepClone(DEFAULT_PROFILE_DATA);
+    }
+
+    let PROFILE_DATA = loadInitialData();
+    let activeProjectFilter = "all";
+
+    function showToast(message, type = "success") {
+      const container = document.getElementById("toast-container");
+      if (!container) return;
+
+      const toast = document.createElement("div");
+      const colorClass =
+        type === "error"
+          ? "bg-rose-600 text-white"
+          : type === "info"
+          ? "bg-sky-700 text-white"
+          : "bg-teal-700 text-white";
+
+      toast.className = `${colorClass} px-4 py-3 rounded-2xl shadow-lg text-xs sm:text-sm font-medium flex items-center gap-2.5 fade-in pointer-events-auto`;
+      toast.innerHTML = `
+        <i data-lucide="${type === "error" ? "alert-circle" : type === "info" ? "info" : "check-circle-2"}" class="w-4 h-4 shrink-0"></i>
+        <span>${escapeHtml(message)}</span>
+      `;
+      container.appendChild(toast);
+      if (window.lucide) window.lucide.createIcons();
+
+      setTimeout(() => {
+        toast.style.opacity = "0";
+        toast.style.transition = "opacity 0.2s ease";
+        setTimeout(() => toast.remove(), 220);
+      }, 2700);
+    }
+
+    function escapeHtml(str) {
+      return String(str ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function sanitizeHref(url) {
+      const trimmed = String(url ?? "").trim();
+      if (!trimmed) return "#";
+      if (
+        trimmed.startsWith("#") ||
+        trimmed.startsWith("https://") ||
+        trimmed.startsWith("http://") ||
+        trimmed.startsWith("mailto:") ||
+        trimmed.startsWith("./") ||
+        trimmed.startsWith("../")
+      ) {
+        return trimmed;
+      }
+      return "https://" + trimmed;
+    }
+
+    function isExternalUrl(url) {
+      return /^https?:\/\//i.test(String(url ?? "").trim());
+    }
+
+    // =====================================================================
+    // PUBLIC PAGE RENDERER
+    // =====================================================================
+    function renderLandingPage() {
+      const d = PROFILE_DATA;
+
+      document.title = `${d.identity.name} (${d.identity.handle}) — ${d.identity.roleBadge}`;
+
+      // Header & Hero
+      document.getElementById("nav-name").textContent = d.identity.name;
+      document.getElementById("nav-handle").textContent = d.identity.handle;
+      document.getElementById("hero-role-badge").textContent = d.identity.roleBadge;
+      document.getElementById("hero-heading").textContent = d.identity.name;
+      document.getElementById("hero-handle").textContent = d.identity.handle;
+      document.getElementById("hero-headline").textContent = d.identity.headline;
+      document.getElementById("hero-tagline").textContent = d.identity.tagline;
+      document.getElementById("hero-bio").textContent = d.identity.bio;
+
+      document.getElementById("profile-card-name").textContent = d.identity.name;
+      document.getElementById("profile-card-school").textContent = d.identity.schoolShort;
+      document.getElementById("meta-location").textContent = d.identity.location;
+      document.getElementById("meta-school").textContent = d.identity.schoolFull;
+      document.getElementById("meta-status").textContent = d.identity.status;
+
+      const avatarEl = document.getElementById("hero-avatar");
+      if (avatarEl && d.identity.avatarUrl && avatarEl.src !== d.identity.avatarUrl) {
+        avatarEl.src = d.identity.avatarUrl;
+      }
+
+      // Pillars
+      document.getElementById("edu-badge").textContent = d.pillars.education.badge;
+      document.getElementById("edu-title").textContent = d.pillars.education.title;
+      document.getElementById("edu-desc").textContent = d.pillars.education.description;
+
+      document.getElementById("tech-badge").textContent = d.pillars.technology.badge;
+      document.getElementById("tech-title").textContent = d.pillars.technology.title;
+      document.getElementById("tech-desc").textContent = d.pillars.technology.description;
+
+      const renderItems = (elId, items, badgeStyle) => {
+        const el = document.getElementById(elId);
+        if (!el) return;
+        el.innerHTML = items
+          .map(
+            (item) => `
+            <div class="p-3.5 rounded-2xl bg-slate-50/90 border border-slate-200/70 flex items-start gap-3">
+              <span class="w-8 h-8 rounded-xl ${badgeStyle} flex items-center justify-center shrink-0 mt-0.5">
+                <i data-lucide="${escapeHtml(item.icon || "sparkles")}" class="w-4 h-4"></i>
+              </span>
+              <div>
+                <h4 class="font-semibold text-sm text-slate-900">${escapeHtml(item.title)}</h4>
+                <p class="text-xs sm:text-[13px] text-slate-600 leading-relaxed mt-0.5">${escapeHtml(item.detail)}</p>
+              </div>
+            </div>
+          `
+          )
+          .join("");
+      };
+
+      renderItems("edu-highlights", d.pillars.education.items, "bg-teal-100/80 text-teal-700");
+      renderItems("tech-highlights", d.pillars.technology.items, "bg-sky-100/80 text-sky-700");
+
+      // Characters
+      const charGrid = document.getElementById("character-grid");
+      if (charGrid) {
+        charGrid.innerHTML = d.characters
+          .map(
+            (c) => `
+            <div class="p-4 rounded-2xl bg-slate-50/75 hover:bg-teal-50/50 border border-slate-200/70 hover:border-teal-200 transition-colors">
+              <div class="flex items-center gap-2.5 mb-1.5">
+                <span class="w-7 h-7 rounded-lg bg-white border border-slate-200/80 text-teal-700 flex items-center justify-center">
+                  <i data-lucide="${escapeHtml(c.icon || "compass")}" class="w-3.5 h-3.5"></i>
+                </span>
+                <h4 class="font-display font-bold text-sm text-slate-900">${escapeHtml(c.title)}</h4>
+              </div>
+              <p class="text-xs text-slate-600 leading-relaxed">${escapeHtml(c.desc)}</p>
+            </div>
+          `
+          )
+          .join("");
+      }
+
+      // Projects
+      renderProjectsGrid();
+
+      // Learning & Administration Resources (clean compact cards: badge, icon, title, direct link button ONLY)
+      const resGrid = document.getElementById("resources-grid");
+      if (resGrid) {
+        resGrid.innerHTML = d.learningResources
+          .map((res) => {
+            const safeUrl = sanitizeHref(res.url);
+            const isExt = isExternalUrl(safeUrl);
+            return `
+              <article class="bento-card p-5 flex flex-col justify-between gap-4">
+                <div class="space-y-3">
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-semibold border ${escapeHtml(res.badgeStyle || "bg-teal-50 text-teal-700 border-teal-200/70")}">
+                      ${escapeHtml(res.category)}
+                    </span>
+                    <span class="w-8 h-8 rounded-xl bg-slate-50 border border-slate-200/80 text-teal-700 flex items-center justify-center shrink-0">
+                      <i data-lucide="${escapeHtml(res.icon || "file-text")}" class="w-4 h-4"></i>
+                    </span>
+                  </div>
+                  <h3 class="font-display font-bold text-base text-slate-900 leading-snug">
+                    ${escapeHtml(res.title)}
+                  </h3>
+                </div>
+
+                <div class="pt-3 border-t border-slate-100">
+                  <a
+                    href="${escapeHtml(safeUrl)}"
+                    data-smart-link="true"
+                    data-link-title="${escapeHtml(res.title)}"
+                    ${isExt ? 'target="_blank" rel="noopener noreferrer"' : ""}
+                    class="inline-flex items-center justify-center gap-1.5 w-full px-3.5 py-2 rounded-xl text-xs font-semibold bg-teal-50 hover:bg-teal-600 text-teal-800 hover:text-white border border-teal-200/70 hover:border-teal-600 transition-colors"
+                  >
+                    <span>${escapeHtml(res.actionLabel || "Buka Tautan")}</span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                  </a>
+                </div>
+              </article>
+            `;
+          })
+          .join("");
+      }
+
+      // Philosophy
+      document.getElementById("philosophy-quote").textContent = d.philosophy.quote;
+      document.getElementById("philosophy-note").textContent = d.philosophy.note;
+
+      // Social Links & Clean Footer
+      const socialEl = document.getElementById("social-links");
+      if (socialEl) {
+        socialEl.innerHTML = d.links
+          .map((lnk) => {
+            const safeUrl = sanitizeHref(lnk.url);
+            const isExt = isExternalUrl(safeUrl);
+            return `
+              <a
+                href="${escapeHtml(safeUrl)}"
+                data-smart-link="true"
+                data-link-title="${escapeHtml(lnk.label)}"
+                ${isExt ? 'target="_blank" rel="noopener noreferrer"' : ""}
+                class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors ${escapeHtml(lnk.style || "bg-slate-100 hover:bg-slate-200 text-slate-800")}"
+              >
+                <i data-lucide="${escapeHtml(lnk.icon || "link")}" class="w-4 h-4"></i>
+                <span>${escapeHtml(lnk.label)}</span>
+              </a>
+            `;
+          })
+          .join("");
+      }
+
+      const copyrightEl = document.getElementById("footer-copyright");
+      if (copyrightEl) {
+        copyrightEl.textContent = `© 2026 ${d.identity.name} (${d.identity.handle})`;
+      }
+
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function renderProjectsGrid() {
+      const grid = document.getElementById("projects-grid");
+      if (!grid) return;
+
+      const list =
+        activeProjectFilter === "all"
+          ? PROFILE_DATA.projects
+          : PROFILE_DATA.projects.filter((p) => p.category === activeProjectFilter);
+
+      if (!list.length) {
+        grid.innerHTML = `
+          <div class="col-span-full bento-card p-8 text-center text-sm text-slate-500">
+            Belum ada karya pada kategori ini.
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = list
+        .map((proj) => {
+          const safeUrl = sanitizeHref(proj.link);
+          const isExt = isExternalUrl(safeUrl);
+          return `
+            <article class="bento-card p-6 sm:p-7 flex flex-col justify-between">
+              <div>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                  <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold border ${escapeHtml(proj.badgeColor || "bg-teal-50 text-teal-700 border-teal-200/70")}">
+                    ${escapeHtml(proj.categoryLabel)}
+                  </span>
+                  <span class="text-xs font-medium text-slate-400">${escapeHtml(proj.year || "")}</span>
+                </div>
+
+                <h3 class="font-display font-bold text-xl text-slate-900 mb-2">${escapeHtml(proj.title)}</h3>
+                <p class="text-sm text-slate-600 leading-relaxed mb-4">${escapeHtml(proj.summary)}</p>
+
+                <ul class="space-y-1.5 text-xs sm:text-[13px] text-slate-600 mb-5">
+                  ${(proj.highlights || [])
+                    .map(
+                      (h) => `
+                      <li class="flex items-start gap-2">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-teal-600 shrink-0 mt-0.5"></i>
+                        <span>${escapeHtml(h)}</span>
+                      </li>
+                    `
+                    )
+                    .join("")}
+                </ul>
+              </div>
+
+              <div>
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  ${(proj.tags || [])
+                    .map(
+                      (tag) => `
+                      <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 text-xs font-medium">
+                        ${escapeHtml(tag)}
+                      </span>
+                    `
+                    )
+                    .join("")}
+                </div>
+
+                <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+                  <button
+                    type="button"
+                    data-open-project="${escapeHtml(proj.id)}"
+                    class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-600 hover:text-teal-700 transition-colors"
+                  >
+                    <i data-lucide="eye" class="w-4 h-4"></i>
+                    <span>Detail Ringkas</span>
+                  </button>
+
+                  <a
+                    href="${escapeHtml(safeUrl)}"
+                    data-smart-link="true"
+                    data-link-title="${escapeHtml(proj.title)}"
+                    ${isExt ? 'target="_blank" rel="noopener noreferrer"' : ""}
+                    class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold ${
+                      isExt
+                        ? "bg-teal-600 hover:bg-teal-700 text-white shadow-2xs"
+                        : "bg-slate-100 hover:bg-teal-50 text-slate-700 hover:text-teal-800"
+                    } transition-colors"
+                  >
+                    <span>${escapeHtml(proj.linkText || "Buka Tautan")}</span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+          `;
+        })
+        .join("");
+
+      if (window.lucide) window.lucide.createIcons();
+
+      grid.querySelectorAll("[data-open-project]").forEach((btn) => {
+        btn.addEventListener("click", () => openProjectModal(btn.getAttribute("data-open-project")));
+      });
+    }
+
+    // =====================================================================
+    // PROJECT DETAIL MODAL
+    // =====================================================================
+    const projectModal = document.getElementById("project-modal");
+
+    function openProjectModal(id) {
+      const proj = PROFILE_DATA.projects.find((p) => p.id === id);
+      if (!proj || !projectModal) return;
+
+      document.getElementById("modal-category").textContent = proj.categoryLabel;
+      document.getElementById("modal-title").textContent = proj.title;
+      document.getElementById("modal-summary").textContent = proj.summary;
+
+      const extLink = document.getElementById("modal-external-link");
+      const safeUrl = sanitizeHref(proj.link);
+      const isExt = isExternalUrl(safeUrl);
+      extLink.href = safeUrl;
+      extLink.setAttribute("data-smart-link", "true");
+      extLink.setAttribute("data-link-title", proj.title);
+      if (isExt) {
+        extLink.setAttribute("target", "_blank");
+        extLink.setAttribute("rel", "noopener noreferrer");
+      } else {
+        extLink.removeAttribute("target");
+        extLink.removeAttribute("rel");
+      }
+      document.getElementById("modal-link-label").textContent = proj.linkText || "Buka Tautan";
+
+      document.getElementById("modal-highlights").innerHTML = (proj.highlights || [])
+        .map((h) => `<li>${escapeHtml(h)}</li>`)
+        .join("");
+
+      document.getElementById("modal-tags").innerHTML = (proj.tags || [])
+        .map((t) => `<span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 text-xs font-medium">${escapeHtml(t)}</span>`)
+        .join("");
+
+      projectModal.classList.remove("hidden");
+      projectModal.classList.add("flex");
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function closeProjectModal() {
+      if (!projectModal) return;
+      projectModal.classList.add("hidden");
+      projectModal.classList.remove("flex");
+    }
+
+    // =====================================================================
+    // HIDDEN ADMIN VIEW & PASSWORD GATE ROUTING
+    // =====================================================================
+    const publicView = document.getElementById("public-view");
+    const adminView = document.getElementById("admin-view");
+    const adminLoginGate = document.getElementById("admin-login-gate");
+    const adminDashboard = document.getElementById("admin-dashboard");
+
+    function isAdminRouteRequested() {
+      const hash = window.location.hash.toLowerCase();
+      const params = new URLSearchParams(window.location.search);
+      return hash === "#admin" || hash.startsWith("#admin/") || params.get("admin") === "1";
+    }
+
+    function isAdminAuthenticated() {
+      try {
+        return sessionStorage.getItem(ADMIN_SESSION_KEY) === "true";
+      } catch (e) {
+        return false;
+      }
+    }
+
+    function setAdminAuthenticated(val) {
+      try {
+        if (val) {
+          sessionStorage.setItem(ADMIN_SESSION_KEY, "true");
+        } else {
+          sessionStorage.removeItem(ADMIN_SESSION_KEY);
+        }
+      } catch (e) {
+        console.warn("Session storage unavailable.");
+      }
+    }
+
+    function navigateToPublic() {
+      const cleanUrl = window.location.pathname;
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, "", cleanUrl);
+      } else {
+        window.location.hash = "";
+      }
+      syncRouteView();
+    }
+
+    function navigateToAdmin() {
+      if (window.location.hash.toLowerCase() !== "#admin") {
+        window.location.hash = "admin";
+      } else {
+        syncRouteView();
+      }
+    }
+
+    function syncRouteView() {
+      if (isAdminRouteRequested()) {
+        publicView.classList.add("hidden");
+        adminView.classList.remove("hidden");
+
+        if (isAdminAuthenticated()) {
+          adminLoginGate.classList.add("hidden");
+          adminDashboard.classList.remove("hidden");
+          adminDashboard.classList.add("flex");
+          syncAdminInputsFromData();
+        } else {
+          adminDashboard.classList.add("hidden");
+          adminDashboard.classList.remove("flex");
+          adminLoginGate.classList.remove("hidden");
+          const pwdInput = document.getElementById("admin-password-input");
+          if (pwdInput) {
+            pwdInput.value = "";
+            setTimeout(() => pwdInput.focus(), 50);
+          }
+          document.getElementById("admin-login-error").classList.add("hidden");
+        }
+      } else {
+        adminView.classList.add("hidden");
+        publicView.classList.remove("hidden");
+        renderLandingPage();
+      }
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    // =====================================================================
+    // ADMIN DASHBOARD CONTROLS
+    // =====================================================================
+    function switchAdminTab(tabName) {
+      document.querySelectorAll(".admin-tab").forEach((tab) => {
+        const active = tab.getAttribute("data-admin-tab") === tabName;
+        tab.className = active
+          ? "admin-tab px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap bg-teal-600 text-white"
+          : "admin-tab px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap bg-slate-100 text-slate-600 hover:bg-slate-200/70";
+      });
+
+      document.querySelectorAll(".admin-panel").forEach((panel) => {
+        const match = panel.getAttribute("data-admin-panel") === tabName;
+        panel.classList.toggle("hidden", !match);
+      });
+
+      if (tabName === "export") {
+        refreshExportPreview();
+      }
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function syncAdminInputsFromData() {
+      const id = PROFILE_DATA.identity;
+      document.getElementById("adm-id-name").value = id.name || "";
+      document.getElementById("adm-id-handle").value = id.handle || "";
+      document.getElementById("adm-id-role").value = id.roleBadge || "";
+      document.getElementById("adm-id-headline").value = id.headline || "";
+      document.getElementById("adm-id-tagline").value = id.tagline || "";
+      document.getElementById("adm-id-bio").value = id.bio || "";
+      document.getElementById("adm-id-avatar").value = id.avatarUrl || "";
+      document.getElementById("adm-id-location").value = id.location || "";
+      document.getElementById("adm-id-school-short").value = id.schoolShort || "";
+      document.getElementById("adm-id-school-full").value = id.schoolFull || "";
+      document.getElementById("adm-id-status").value = id.status || "";
+
+      // Pillars
+      document.getElementById("adm-edu-title").value = PROFILE_DATA.pillars.education.title || "";
+      document.getElementById("adm-edu-desc").value = PROFILE_DATA.pillars.education.description || "";
+      document.getElementById("adm-tech-title").value = PROFILE_DATA.pillars.technology.title || "";
+      document.getElementById("adm-tech-desc").value = PROFILE_DATA.pillars.technology.description || "";
+
+      renderAdminPillarItems("adm-edu-items", PROFILE_DATA.pillars.education.items);
+      renderAdminPillarItems("adm-tech-items", PROFILE_DATA.pillars.technology.items);
+      renderAdminCharacters();
+      renderAdminProjects();
+      renderAdminResources();
+
+      // Philosophy & Links
+      document.getElementById("adm-phil-quote").value = PROFILE_DATA.philosophy.quote || "";
+      document.getElementById("adm-phil-note").value = PROFILE_DATA.philosophy.note || "";
+      renderAdminLinks();
+      refreshExportPreview();
+    }
+
+    function renderAdminPillarItems(containerId, items) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      container.innerHTML = items
+        .map(
+          (item, idx) => `
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+            <input
+              type="text"
+              data-pillar-title="${containerId}:${idx}"
+              value="${escapeHtml(item.title)}"
+              placeholder="Judul poin"
+              class="w-full px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-semibold"
+            />
+            <textarea
+              rows="2"
+              data-pillar-detail="${containerId}:${idx}"
+              placeholder="Keterangan singkat"
+              class="w-full px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-xs"
+            >${escapeHtml(item.detail)}</textarea>
+          </div>
+        `
+        )
+        .join("");
+
+      container.querySelectorAll("[data-pillar-title]").forEach((inp) => {
+        inp.addEventListener("input", () => {
+          const [cid, i] = inp.getAttribute("data-pillar-title").split(":");
+          const arr = cid === "adm-edu-items" ? PROFILE_DATA.pillars.education.items : PROFILE_DATA.pillars.technology.items;
+          if (arr[Number(i)]) arr[Number(i)].title = inp.value;
+        });
+      });
+
+      container.querySelectorAll("[data-pillar-detail]").forEach((ta) => {
+        ta.addEventListener("input", () => {
+          const [cid, i] = ta.getAttribute("data-pillar-detail").split(":");
+          const arr = cid === "adm-edu-items" ? PROFILE_DATA.pillars.education.items : PROFILE_DATA.pillars.technology.items;
+          if (arr[Number(i)]) arr[Number(i)].detail = ta.value;
+        });
+      });
+    }
+
+    function renderAdminCharacters() {
+      const container = document.getElementById("adm-character-items");
+      if (!container) return;
+      container.innerHTML = PROFILE_DATA.characters
+        .map(
+          (c, idx) => `
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+            <input
+              type="text"
+              data-char-title="${idx}"
+              value="${escapeHtml(c.title)}"
+              class="w-full px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-semibold"
+            />
+            <textarea
+              rows="2"
+              data-char-desc="${idx}"
+              class="w-full px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-xs"
+            >${escapeHtml(c.desc)}</textarea>
+          </div>
+        `
+        )
+        .join("");
+
+      container.querySelectorAll("[data-char-title]").forEach((inp) => {
+        inp.addEventListener("input", () => {
+          const i = Number(inp.getAttribute("data-char-title"));
+          if (PROFILE_DATA.characters[i]) PROFILE_DATA.characters[i].title = inp.value;
+        });
+      });
+
+      container.querySelectorAll("[data-char-desc]").forEach((ta) => {
+        ta.addEventListener("input", () => {
+          const i = Number(ta.getAttribute("data-char-desc"));
+          if (PROFILE_DATA.characters[i]) PROFILE_DATA.characters[i].desc = ta.value;
+        });
+      });
+    }
+
+    function renderAdminProjects() {
+      const container = document.getElementById("adm-projects-list");
+      if (!container) return;
+      container.innerHTML = PROFILE_DATA.projects
+        .map(
+          (proj, idx) => `
+          <div class="bento-card p-5 sm:p-6 space-y-3.5">
+            <div class="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-slate-100">
+              <span class="text-xs font-bold text-slate-800">Karya #${idx + 1} — ${escapeHtml(proj.title)}</span>
+              <div class="flex items-center gap-1.5">
+                <button
+                  type="button"
+                  data-move-project="${idx}:-1"
+                  ${idx === 0 ? "disabled" : ""}
+                  title="Geser ke atas"
+                  class="px-2 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 disabled:opacity-40 text-slate-700 text-xs"
+                >
+                  <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+                </button>
+                <button
+                  type="button"
+                  data-move-project="${idx}:1"
+                  ${idx === PROFILE_DATA.projects.length - 1 ? "disabled" : ""}
+                  title="Geser ke bawah"
+                  class="px-2 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 disabled:opacity-40 text-slate-700 text-xs"
+                >
+                  <i data-lucide="arrow-down" class="w-3.5 h-3.5"></i>
+                </button>
+                <button
+                  type="button"
+                  data-del-project="${idx}"
+                  class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-semibold"
+                >
+                  <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                  <span>Hapus</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-600 mb-1">Judul Karya</label>
+                <input type="text" data-proj-field="title" data-proj-idx="${idx}" value="${escapeHtml(proj.title)}" class="w-full px-3 py-1.5 rounded-xl border border-slate-300 bg-white text-xs" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-600 mb-1">Kategori Filter</label>
+                <select data-proj-field="category" data-proj-idx="${idx}" class="w-full px-3 py-1.5 rounded-xl border border-slate-300 bg-white text-xs">
+                  <option value="edtech" ${proj.category === "edtech" ? "selected" : ""}>Media &amp; Game Edukasi (edtech)</option>
+                  <option value="ai" ${proj.category === "ai" ? "selected" : ""}>AI &amp; Otomatisasi (ai)</option>
+                  <option value="community" ${proj.category === "community" ? "selected" : ""}>Komunitas &amp; Sekolah (community)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-600 mb-1">Label Badge</label>
+                <input type="text" data-proj-field="categoryLabel" data-proj-idx="${idx}" value="${escapeHtml(proj.categoryLabel)}" class="w-full px-3 py-1.5 rounded-xl border border-slate-300 bg-white text-xs" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-600 mb-1">Tahun / Label Kanan</label>
+                <input type="text" data-proj-field="year" data-proj-idx="${idx}" value="${escapeHtml(proj.year || "")}" class="w-full px-3 py-1.5 rounded-xl border border-slate-300 bg-white text-xs" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-600 mb-1">Teks Tombol</label>
+                <input type="text" data-proj-field="linkText" data-proj-idx="${idx}" value="${escapeHtml(proj.linkText || "Buka Tautan")}" class="w-full px-3 py-1.5 rounded-xl border border-slate-300 bg-white text-xs" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-[11px] font-semibold text-slate-600 mb-1">Ringkasan</label>
+              <textarea rows="2" data-proj-field="summary" data-proj-idx="${idx}" class="w-full px-3 py-1.5 rounded-xl border border-slate-300 bg-white text-xs">${escapeHtml(proj.summary)}</textarea>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-600 mb-1">Tag (pisahkan koma)</label>
+                <input type="text" data-proj-field="tagsText" data-proj-idx="${idx}" value="${escapeHtml((proj.tags || []).join(", "))}" class="w-full px-3 py-1.5 rounded-xl border border-slate-300 bg-white text-xs" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-600 mb-1">URL Tautan Langsung</label>
+                <input type="text" data-proj-field="link" data-proj-idx="${idx}" value="${escapeHtml(proj.link)}" placeholder="https://..." class="w-full px-3 py-1.5 rounded-xl border border-slate-300 bg-white text-xs" />
+              </div>
+            </div>
+          </div>
+        `
+        )
+        .join("");
+
+      if (window.lucide) window.lucide.createIcons();
+
+      container.querySelectorAll("[data-proj-field]").forEach((el) => {
+        const evt = el.tagName === "SELECT" ? "change" : "input";
+        el.addEventListener(evt, () => {
+          const idx = Number(el.getAttribute("data-proj-idx"));
+          const field = el.getAttribute("data-proj-field");
+          const item = PROFILE_DATA.projects[idx];
+          if (!item) return;
+
+          if (field === "tagsText") {
+            item.tags = el.value
+              .split(",")
+              .map((s) => s.trim())
+              .filter(Boolean);
+          } else if (field === "category") {
+            item.category = el.value;
+            item.badgeColor =
+              el.value === "ai"
+                ? "bg-sky-50 text-sky-700 border-sky-200/70"
+                : "bg-teal-50 text-teal-700 border-teal-200/70";
+          } else {
+            item[field] = el.value;
+          }
+        });
+      });
+
+      container.querySelectorAll("[data-move-project]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const [idxStr, dirStr] = btn.getAttribute("data-move-project").split(":");
+          const idx = Number(idxStr);
+          const targetIdx = idx + Number(dirStr);
+          if (targetIdx < 0 || targetIdx >= PROFILE_DATA.projects.length) return;
+          const temp = PROFILE_DATA.projects[idx];
+          PROFILE_DATA.projects[idx] = PROFILE_DATA.projects[targetIdx];
+          PROFILE_DATA.projects[targetIdx] = temp;
+          renderAdminProjects();
+        });
+      });
+
+      container.querySelectorAll("[data-del-project]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const idx = Number(btn.getAttribute("data-del-project"));
+          PROFILE_DATA.projects.splice(idx, 1);
+          renderAdminProjects();
+          showToast("Karya dihapus dari daftar.", "info");
+        });
+      });
+    }
+
+    function renderAdminResources() {
+      const container = document.getElementById("adm-resources-list");
+      if (!container) return;
+
+      const RESOURCE_ICON_OPTIONS = [
+        { key: "file-text", label: "Modul / Dokumen Ajar" },
+        { key: "clipboard-list", label: "LKPD / Lembar Kerja" },
+        { key: "check-square", label: "Asesmen / Evaluasi" },
+        { key: "folder-open", label: "Administrasi Guru" },
+        { key: "calendar", label: "Program / Jadwal" },
+        { key: "book-open", label: "Buku / Materi Ajar" },
+        { key: "layers", label: "Kurikulum / KSP / ATP" },
+        { key: "award", label: "Rapor / Penilaian" },
+        { key: "sparkles", label: "Media Interaktif / AI" },
+        { key: "link", label: "Tautan Umum" },
+      ];
+
+      container.innerHTML = PROFILE_DATA.learningResources
+        .map((res, idx) => {
+          const currentIcon = res.icon || "file-text";
+          return `
+          <div class="bento-card p-4 sm:p-5 space-y-3.5">
+            <div class="flex items-center justify-between gap-2">
+              <div class="flex items-center gap-2">
+                <span class="w-7 h-7 rounded-lg bg-teal-50 border border-teal-200/70 text-teal-700 flex items-center justify-center">
+                  <i data-lucide="${escapeHtml(currentIcon)}" class="w-3.5 h-3.5"></i>
+                </span>
+                <span class="text-xs font-bold text-slate-700">Tautan Perangkat/Adm #${idx + 1}</span>
+              </div>
+              <button
+                type="button"
+                data-del-res="${idx}"
+                class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-semibold"
+              >
+                <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                <span>Hapus</span>
+              </button>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-600 mb-1">Badge Kategori</label>
+                <input type="text" data-res-field="category" data-res-idx="${idx}" value="${escapeHtml(res.category)}" class="w-full px-3 py-1.5 rounded-xl border border-slate-300 bg-white text-xs" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-600 mb-1">Judul Dokumen / Perangkat</label>
+                <input type="text" data-res-field="title" data-res-idx="${idx}" value="${escapeHtml(res.title)}" class="w-full px-3 py-1.5 rounded-xl border border-slate-300 bg-white text-xs" />
+              </div>
+            </div>
+
+            <!-- Visual Icon Picker -->
+            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 space-y-2">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <label class="text-[11px] font-semibold text-slate-700">Pilih Ikon Kartu</label>
+                <select
+                  data-res-icon-select="${idx}"
+                  aria-label="Pilih ikon untuk kartu #${idx + 1}"
+                  class="px-2.5 py-1 rounded-lg border border-slate-300 bg-white text-[11px] font-medium text-slate-700 focus:outline-none focus:border-teal-600"
+                >
+                  ${RESOURCE_ICON_OPTIONS.map(
+                    (opt) =>
+                      `<option value="${opt.key}" ${currentIcon === opt.key ? "selected" : ""}>${opt.label}</option>`
+                  ).join("")}
+                </select>
+              </div>
+
+              <div class="flex flex-wrap gap-1.5">
+                ${RESOURCE_ICON_OPTIONS.map((opt) => {
+                  const isSelected = currentIcon === opt.key;
+                  return `
+                    <button
+                      type="button"
+                      data-res-icon-btn="${idx}:${opt.key}"
+                      title="${opt.label}"
+                      aria-label="${opt.label}"
+                      class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-[11px] font-medium transition-all ${
+                        isSelected
+                          ? "bg-teal-600 text-white border-teal-600 shadow-2xs"
+                          : "bg-white text-slate-600 border-slate-200 hover:border-teal-300 hover:text-teal-700 hover:bg-teal-50/50"
+                      }"
+                    >
+                      <i data-lucide="${opt.key}" class="w-3.5 h-3.5 shrink-0"></i>
+                      <span class="hidden sm:inline">${opt.label.split(" / ")[0]}</span>
+                    </button>
+                  `;
+                }).join("")}
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-600 mb-1">URL Tautan</label>
+                <input type="text" data-res-field="url" data-res-idx="${idx}" value="${escapeHtml(res.url)}" placeholder="https://..." class="w-full px-3 py-1.5 rounded-xl border border-slate-300 bg-white text-xs" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-600 mb-1">Label Tombol</label>
+                <input type="text" data-res-field="actionLabel" data-res-idx="${idx}" value="${escapeHtml(res.actionLabel || "Buka Tautan")}" class="w-full px-3 py-1.5 rounded-xl border border-slate-300 bg-white text-xs" />
+              </div>
+            </div>
+          </div>
+        `;
+        })
+        .join("");
+
+      if (window.lucide) window.lucide.createIcons();
+
+      container.querySelectorAll("[data-res-field]").forEach((inp) => {
+        inp.addEventListener("input", () => {
+          const idx = Number(inp.getAttribute("data-res-idx"));
+          const field = inp.getAttribute("data-res-field");
+          if (PROFILE_DATA.learningResources[idx]) {
+            PROFILE_DATA.learningResources[idx][field] = inp.value;
+          }
+        });
+      });
+
+      container.querySelectorAll("[data-res-icon-btn]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const [idxStr, iconKey] = btn.getAttribute("data-res-icon-btn").split(":");
+          const idx = Number(idxStr);
+          if (PROFILE_DATA.learningResources[idx]) {
+            PROFILE_DATA.learningResources[idx].icon = iconKey;
+            renderAdminResources();
+          }
+        });
+      });
+
+      container.querySelectorAll("[data-res-icon-select]").forEach((sel) => {
+        sel.addEventListener("change", () => {
+          const idx = Number(sel.getAttribute("data-res-icon-select"));
+          if (PROFILE_DATA.learningResources[idx]) {
+            PROFILE_DATA.learningResources[idx].icon = sel.value;
+            renderAdminResources();
+          }
+        });
+      });
+
+      container.querySelectorAll("[data-del-res]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const idx = Number(btn.getAttribute("data-del-res"));
+          PROFILE_DATA.learningResources.splice(idx, 1);
+          renderAdminResources();
+          showToast("Tautan dihapus.", "info");
+        });
+      });
+    }
+
+    function renderAdminLinks() {
+      const container = document.getElementById("adm-links-list");
+      if (!container) return;
+      container.innerHTML = PROFILE_DATA.links
+        .map(
+          (lnk, idx) => `
+          <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 grid grid-cols-1 sm:grid-cols-12 gap-2 items-center">
+            <input
+              type="text"
+              data-lnk-field="label"
+              data-lnk-idx="${idx}"
+              value="${escapeHtml(lnk.label)}"
+              placeholder="Label"
+              class="sm:col-span-3 px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-xs"
+            />
+            <input
+              type="text"
+              data-lnk-field="icon"
+              data-lnk-idx="${idx}"
+              value="${escapeHtml(lnk.icon || "link")}"
+              placeholder="Ikon (github, mail, globe)"
+              class="sm:col-span-3 px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-xs"
+            />
+            <input
+              type="text"
+              data-lnk-field="url"
+              data-lnk-idx="${idx}"
+              value="${escapeHtml(lnk.url)}"
+              placeholder="https://..."
+              class="sm:col-span-5 px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-xs"
+            />
+            <button
+              type="button"
+              data-del-lnk="${idx}"
+              aria-label="Hapus tautan"
+              class="sm:col-span-1 px-2.5 py-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-semibold flex items-center justify-center"
+            >
+              <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        `
+        )
+        .join("");
+
+      if (window.lucide) window.lucide.createIcons();
+
+      container.querySelectorAll("[data-lnk-field]").forEach((inp) => {
+        inp.addEventListener("input", () => {
+          const idx = Number(inp.getAttribute("data-lnk-idx"));
+          const field = inp.getAttribute("data-lnk-field");
+          if (PROFILE_DATA.links[idx]) {
+            PROFILE_DATA.links[idx][field] = inp.value;
+          }
+        });
+      });
+
+      container.querySelectorAll("[data-del-lnk]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const idx = Number(btn.getAttribute("data-del-lnk"));
+          PROFILE_DATA.links.splice(idx, 1);
+          renderAdminLinks();
+        });
+      });
+    }
+
+    function bindStaticAdminInputs() {
+      const bindId = (elId, targetObj, key) => {
+        const el = document.getElementById(elId);
+        if (!el) return;
+        el.addEventListener("input", () => {
+          targetObj[key] = el.value;
+        });
+      };
+
+      bindId("adm-id-name", PROFILE_DATA.identity, "name");
+      bindId("adm-id-handle", PROFILE_DATA.identity, "handle");
+      bindId("adm-id-role", PROFILE_DATA.identity, "roleBadge");
+      bindId("adm-id-headline", PROFILE_DATA.identity, "headline");
+      bindId("adm-id-tagline", PROFILE_DATA.identity, "tagline");
+      bindId("adm-id-bio", PROFILE_DATA.identity, "bio");
+      bindId("adm-id-avatar", PROFILE_DATA.identity, "avatarUrl");
+      bindId("adm-id-location", PROFILE_DATA.identity, "location");
+      bindId("adm-id-school-short", PROFILE_DATA.identity, "schoolShort");
+      bindId("adm-id-school-full", PROFILE_DATA.identity, "schoolFull");
+      bindId("adm-id-status", PROFILE_DATA.identity, "status");
+
+      bindId("adm-edu-title", PROFILE_DATA.pillars.education, "title");
+      bindId("adm-edu-desc", PROFILE_DATA.pillars.education, "description");
+      bindId("adm-tech-title", PROFILE_DATA.pillars.technology, "title");
+      bindId("adm-tech-desc", PROFILE_DATA.pillars.technology, "description");
+
+      bindId("adm-phil-quote", PROFILE_DATA.philosophy, "quote");
+      bindId("adm-phil-note", PROFILE_DATA.philosophy, "note");
+
+      document.getElementById("adm-add-project").addEventListener("click", () => {
+        PROFILE_DATA.projects.push({
+          id: "karya-" + Date.now(),
+          title: "Karya / Inisiatif Baru",
+          category: "edtech",
+          categoryLabel: "Media & Game Edukasi",
+          badgeColor: "bg-teal-50 text-teal-700 border-teal-200/70",
+          year: "Aktif",
+          summary: "Deskripsi singkat karya atau inisiatif baru.",
+          highlights: ["Poin utama pengembangan dan penerapan."],
+          tags: ["Edukasi", "Digital"],
+          link: "#placeholder-karya",
+          linkText: "Buka Tautan",
+        });
+        renderAdminProjects();
+      });
+
+      document.getElementById("adm-add-resource").addEventListener("click", () => {
+        PROFILE_DATA.learningResources.push({
+          id: "dokumen-" + Date.now(),
+          category: "Perangkat Pembelajaran",
+          badgeStyle: "bg-teal-50 text-teal-700 border-teal-200/70",
+          icon: "file-text",
+          title: "Dokumen Perangkat / Administrasi Baru",
+          url: "#placeholder-dokumen",
+          actionLabel: "Buka Tautan",
+        });
+        renderAdminResources();
+      });
+
+      document.getElementById("adm-add-link").addEventListener("click", () => {
+        PROFILE_DATA.links.push({
+          label: "Tautan Baru",
+          icon: "link",
+          url: "https://",
+          style: "bg-slate-100 hover:bg-slate-200 text-slate-800",
+        });
+        renderAdminLinks();
+      });
+
+      // Change Admin Password Form
+      document.getElementById("adm-change-password-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const newPwd = document.getElementById("adm-new-password").value;
+        const confirmPwd = document.getElementById("adm-confirm-password").value;
+
+        if (!newPwd || newPwd.length < 4) {
+          showToast("Password minimal 4 karakter.", "error");
+          return;
+        }
+        if (newPwd !== confirmPwd) {
+          showToast("Konfirmasi password tidak cocok.", "error");
+          return;
+        }
+
+        PROFILE_DATA.admin.passwordHash = hashSecret(newPwd);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(PROFILE_DATA));
+        document.getElementById("adm-new-password").value = "";
+        document.getElementById("adm-confirm-password").value = "";
+        refreshExportPreview();
+        showToast("Password admin diperbarui. Unduh index.html di tab Ekspor untuk menyimpannya permanen.");
+      });
+
+      // Save preview to localStorage
+      document.getElementById("adm-save-browser").addEventListener("click", () => {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(PROFILE_DATA));
+          refreshExportPreview();
+          showToast("Perubahan disimpan ke browser.");
+        } catch (err) {
+          showToast("Gagal menyimpan ke browser.", "error");
+        }
+      });
+
+      // Reset to default
+      document.getElementById("adm-reset-default").addEventListener("click", () => {
+        PROFILE_DATA = deepClone(DEFAULT_PROFILE_DATA);
+        localStorage.removeItem(STORAGE_KEY);
+        syncAdminInputsFromData();
+        showToast("Semua data dikembalikan ke pengaturan awal.", "info");
+      });
+    }
+
+    // =====================================================================
+    // EXPORT, DOWNLOAD & CLIPBOARD HELPERS
+    // =====================================================================
+    function generateDataJsContent() {
+      return `// Konfigurasi Data Profil Fajar Tri H (@fajarth)\nconst PROFILE_DATA = ${JSON.stringify(PROFILE_DATA, null, 2)};\n`;
+    }
+
+    function generateStandaloneHtmlContent() {
+      const clone = document.documentElement.cloneNode(true);
+
+      // Ensure exported HTML boots cleanly into public view
+      const toastBox = clone.querySelector("#toast-container");
+      if (toastBox) toastBox.innerHTML = "";
+
+      const pub = clone.querySelector("#public-view");
+      if (pub) pub.classList.remove("hidden");
+
+      const adm = clone.querySelector("#admin-view");
+      if (adm) adm.classList.add("hidden");
+
+      const loginGate = clone.querySelector("#admin-login-gate");
+      if (loginGate) loginGate.classList.remove("hidden");
+
+      const dash = clone.querySelector("#admin-dashboard");
+      if (dash) {
+        dash.classList.add("hidden");
+        dash.classList.remove("flex");
+      }
+
+      const projModal = clone.querySelector("#project-modal");
+      if (projModal) {
+        projModal.classList.add("hidden");
+        projModal.classList.remove("flex");
+      }
+
+      let htmlStr = "<!DOCTYPE html>\n" + clone.outerHTML;
+      const serialized = JSON.stringify(PROFILE_DATA, null, 2).replace(/<\//g, "<\\/");
+      const defaultBlockRegex = /const DEFAULT_PROFILE_DATA = \{[\s\S]*?\n    \};/;
+      htmlStr = htmlStr.replace(defaultBlockRegex, `const DEFAULT_PROFILE_DATA = ${serialized};`);
+      return htmlStr;
+    }
+
+    function refreshExportPreview() {
+      const ta = document.getElementById("adm-export-preview");
+      if (ta) {
+        ta.value = generateDataJsContent();
+      }
+    }
+
+    function triggerDownload(filename, content, mimeType = "text/plain;charset=utf-8") {
+      try {
+        const blob = new Blob([content], { type: mimeType });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+        showToast(`File ${filename} berhasil diunduh.`);
+      } catch (err) {
+        showToast(`Gagal mengunduh ${filename}.`, "error");
+      }
+    }
+
+    function copyTextFallback(text, successMsg) {
+      try {
+        const helper = document.createElement("textarea");
+        helper.value = text;
+        helper.setAttribute("readonly", "");
+        helper.style.position = "fixed";
+        helper.style.opacity = "0";
+        document.body.appendChild(helper);
+        helper.select();
+        document.execCommand("copy");
+        helper.remove();
+        showToast(successMsg);
+      } catch (err) {
+        showToast("Gagal menyalin ke clipboard.", "error");
+      }
+    }
+
+    // =====================================================================
+    // INITIALIZATION & EVENT LISTENERS
+    // =====================================================================
+    document.addEventListener("DOMContentLoaded", () => {
+      bindStaticAdminInputs();
+      syncRouteView();
+
+      window.addEventListener("hashchange", syncRouteView);
+
+      // Discrete secret trigger: 5 rapid clicks on @fajarth handle opens #admin
+      let handleClickCount = 0;
+      let handleClickTimer = null;
+      const heroHandleEl = document.getElementById("hero-handle");
+      if (heroHandleEl) {
+        heroHandleEl.addEventListener("click", () => {
+          handleClickCount++;
+          clearTimeout(handleClickTimer);
+          handleClickTimer = setTimeout(() => {
+            handleClickCount = 0;
+          }, 1200);
+          if (handleClickCount >= 5) {
+            handleClickCount = 0;
+            navigateToAdmin();
+          }
+        });
+      }
+
+      // Smart link handler: opens external https:// URLs normally, shows clean toast for #placeholder links
+      document.addEventListener("click", (e) => {
+        const anchor = e.target.closest("a[data-smart-link='true']");
+        if (!anchor) return;
+        const href = anchor.getAttribute("href") || "";
+        if (href.startsWith("#placeholder")) {
+          e.preventDefault();
+          const title = anchor.getAttribute("data-link-title") || "Tautan";
+          showToast(`Tautan untuk "${title}" sedang disiapkan.`, "info");
+        }
+      });
+
+      // Filter buttons
+      document.querySelectorAll(".filter-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          activeProjectFilter = btn.getAttribute("data-filter") || "all";
+          document.querySelectorAll(".filter-btn").forEach((b) => {
+            const isSel = b === btn;
+            b.className = isSel
+              ? "filter-btn active px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-teal-600 text-white shadow-sm transition-all"
+              : "filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 hover:bg-teal-50 hover:text-teal-700 border border-slate-200 transition-all";
+          });
+          renderProjectsGrid();
+        });
+      });
+
+      // Project modal events
+      document.getElementById("modal-close").addEventListener("click", closeProjectModal);
+      document.getElementById("modal-done").addEventListener("click", closeProjectModal);
+      projectModal.addEventListener("click", (e) => {
+        if (e.target === projectModal) closeProjectModal();
+      });
+
+      // Admin Login Form
+      document.getElementById("admin-login-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const entered = document.getElementById("admin-password-input").value;
+        const expectedHash = PROFILE_DATA.admin?.passwordHash || hashSecret("Arfadevanka@1112");
+
+        if (hashSecret(entered) === expectedHash) {
+          setAdminAuthenticated(true);
+          document.getElementById("admin-login-error").classList.add("hidden");
+          syncRouteView();
+          showToast("Berhasil masuk ke Dashboard Admin.");
+        } else {
+          document.getElementById("admin-login-error").classList.remove("hidden");
+          document.getElementById("admin-password-input").focus();
+        }
+      });
+
+      // Toggle Password Visibility
+      document.getElementById("toggle-password-visibility").addEventListener("click", () => {
+        const input = document.getElementById("admin-password-input");
+        input.type = input.type === "password" ? "text" : "password";
+      });
+
+      // Back to Public from Login Gate or Dashboard
+      document.getElementById("login-back-public").addEventListener("click", navigateToPublic);
+      document.getElementById("admin-view-public-btn").addEventListener("click", () => {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(PROFILE_DATA));
+        } catch (err) {}
+        navigateToPublic();
+      });
+
+      // Logout Admin
+      document.getElementById("admin-logout-btn").addEventListener("click", () => {
+        setAdminAuthenticated(false);
+        showToast("Anda telah keluar dari sesi admin.", "info");
+        navigateToPublic();
+      });
+
+      // Admin Tabs
+      document.querySelectorAll(".admin-tab").forEach((tab) => {
+        tab.addEventListener("click", () => {
+          switchAdminTab(tab.getAttribute("data-admin-tab"));
+        });
+      });
+
+      // Export & Copy Buttons
+      document.getElementById("adm-download-html").addEventListener("click", () => {
+        triggerDownload("index.html", generateStandaloneHtmlContent(), "text/html;charset=utf-8");
+      });
+
+      document.getElementById("adm-download-datajs").addEventListener("click", () => {
+        triggerDownload("data.js", generateDataJsContent(), "application/javascript;charset=utf-8");
+      });
+
+      document.getElementById("adm-copy-datajs").addEventListener("click", () => {
+        copyTextFallback(generateDataJsContent(), "Snippet PROFILE_DATA berhasil disalin.");
+      });
+
+      // Escape key closes modal
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && projectModal && !projectModal.classList.contains("hidden")) {
+          closeProjectModal();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
